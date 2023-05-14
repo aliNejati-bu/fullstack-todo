@@ -13,6 +13,9 @@
     --header-height: 6rem;
 
     --font-size-mobile: 1.6rem;
+
+
+    --basic-radius: 1px;
 }
 
 html {
@@ -22,7 +25,7 @@ html {
 body {
     background: var(--color-background);
     color: var(--color-white);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 
 }
 
@@ -32,21 +35,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.box {
-    width: 85%;
-}
 
 .header {
     background: var(--color-primary);
-    width: 100%;
     height: var(--header-height);
     font-size: var(--font-size-mobile);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 80%;
+    border-radius: var(--basic-radius);
 }
 
 .header__text {
@@ -69,3 +72,74 @@ body {
     height: 0.3rem;
     background: var(--color-white);
 }
+
+.todo-box {
+    background: var(--color-white);
+    color: var(--color-primary);
+    width: 80%;
+    min-height: 10%;
+    border-radius: var(--basic-radius);
+    padding: 3rem 4rem;
+    font-size: 1.8rem;
+}
+
+.todo-box__items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    word-spacing: 2px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.todo-box__item {
+    width: 100%;
+}
+
+.todo-box__item input {
+    margin: 0 1rem 0 1rem;
+}
+
+.todo-box__item input {
+    opacity: 0;
+}
+
+.todo-box__item label::before {
+    line-height: 1.5em;
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    border: 1px solid rgb(82, 82, 82);
+    background: var(--color-white);
+    position: relative;
+    right: 2.5rem;
+    top: 0.05rem;
+}
+
+.todo-box__item input:checked ~ label::before {
+    content: '';
+    background: var(--color-primary);
+    position: relative;
+}
+
+
+.todo-box__item input:checked ~ label {
+    text-decoration: line-through;
+}
+
+.todo-box__item input:checked ~ i {
+    opacity: 1;
+}
+
+
+.todo-box__item i {
+    position: absolute;
+    right: -1rem;
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
